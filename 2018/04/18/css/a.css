@@ -1,0 +1,55 @@
+.a{
+	width: 0;
+	height: 0;
+	border-top: 100px solid #f85214;
+	border-right: 100px solid #7ebc03;
+	border-bottom: 100px solid #ffb900;
+	border-left: 100px solid #00a1f2;
+	margin-right: 20px;
+	float: left;
+}
+.b{
+	width: 0;
+	height: 0;
+	border-top: 200px solid #f85214;
+	border-right: 200px solid #7ebc03;
+	margin-right: 20px;
+	float: left;
+}
+.c{
+	width: 0;
+	height: 0;
+	border-top: 100px solid #f85214;
+	border-right: 100px solid transparent;
+	border-bottom: 100px solid #ffb900;
+	border-left: 100px solid transparent;
+	margin-right: 20px;
+	float: left;
+}
+.d{
+	width: 0;
+	height: 0;
+	border-top: 200px solid #f85214;
+	border-right: 200px solid transparent;
+	margin-right: 50px;
+	float: left;
+}
+.e{
+	width: 0;
+	height: 0;
+	border-top: 100px solid transparent;
+	border-right: 100px solid #7ebc03;
+	border-bottom: 100px solid transparent;
+	border-left: 100px solid transparent;
+	margin-right: 5px;
+	float: left;
+}
+.f{
+	width: 0;
+	height: 0;
+	border-top: 100px solid transparent;
+	border-right: 100px solid transparent;
+	border-bottom: 100px solid transparent;
+	border-left: 100px solid #00a1f2;
+	float: left;
+}

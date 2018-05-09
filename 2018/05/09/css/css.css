@@ -44,14 +44,10 @@ a {
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	background-color: green;
+	background-color: pink;
 	text-align: center;
 	color: white;
 	cursor: pointer;
-}
-
-.container .buttons span.on {
-	background-color: red;
 }
 
 .container .arrow {

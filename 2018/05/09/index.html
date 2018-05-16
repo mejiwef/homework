@@ -3,25 +3,25 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>轮播图</title>
-		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<script src="js/js.js" type="text/javascript" charset="utf-8"></script>
 	</head>
+	
 	<body>
 		<div class="container">
-			<div class="wrap" style="left: -600px;">
-				<img src="img/1.jpg">
-				<img src="img/2.jpg">
-				<img src="img/3.jpg">
-				<img src="img/4.jpg">
+			<div class="wrap">
+				<img src="img/1.jpg" id="thisimg"/>
 			</div>
+			
 			<div class="buttons">
 				<span>1</span>
 				<span>2</span>
 				<span>3</span>
 				<span>4</span>
 			</div>
-			<a class="arrow arrow_left"><</a>
-			<a class="arrow arrow_right">></a>
+			
+			<a id="prev" class="arrow arrow_left"><</a>
+			<a id="next" class="arrow arrow_right">></a>
 		</div>
 	</body>
-
 </html>

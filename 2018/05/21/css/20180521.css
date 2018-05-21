@@ -1,0 +1,62 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.main{
+    width: 300px;
+    height: 280px;
+    position: absolute;
+    left: 500px;
+    top: 200px;
+    border: 2px solid #000;
+    padding: 15px;
+}
+
+.pictures{
+    z-index: 1;
+}
+
+.numbers{
+    position: absolute;
+    left: 180px;
+    top: 195px;
+    z-index: 2;
+}
+
+span{
+    display: inline-block;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: #FFF;
+    background-color: goldenrod;
+    border: 2px solid #FFF;
+    cursor: pointer;
+}
+
+.price{
+    font-size: 23px;
+    color: orange;
+}
+
+.pricetwo{
+    font-size: 12px;
+}
+
+.buy{
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.textone{
+    font-size: 23px;
+}
+
+.four{
+    font-size: 14px;
+    margin-bottom: 5px;
+}

@@ -5,24 +5,24 @@
 }
 
 form{
-    padding: 20px;
+    padding-top: 40px;
     position: absolute;
-    top: 40%;
+    top: 20%;
     left: 40%;
     width: 300px;
-    height: 200px;
+    height: 400px;
     background-color: darkgray;
     text-align: center;
 }
 
-#username{
-    margin-bottom: 10px;
+div{
+    margin-bottom: 15px;
 }
 
-#pwd{
-    margin: 10px;
+form input[type="submit"]{
+    width: 80px;
 }
 
-#submit{
-    margin: 10px;
+select{
+    width: 173px;
 }

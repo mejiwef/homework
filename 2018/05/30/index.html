@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <form action="http://127.0.0.1/server.php" method="GET"> 
+        <div id="username">
+            <label for="username">用户名</label>
+            <input type="text" name="username">
+        </div>
+        <div id="pwd">
+            <label for="pwd">密&nbsp;&nbsp;&nbsp;码</label>
+            <input type="password" name="pwd">
+        </div>
+        <div id="e_mail">
+            <label for="e_mail">邮&nbsp;&nbsp;&nbsp;箱</label>
+            <input type="text" name="e_mail">
+        </div>
+        <div>
+            <label for="like">兴&nbsp;&nbsp;&nbsp;趣</label>
+            <input type="text" name="like">
+        </div>
+        <div>
+            <label for="星球">星&nbsp;&nbsp;&nbsp;球</label>
+            <select name="星球">
+                <option value="地球">我从地球来...</option>
+                <option value="火星">我从火星来...</option>
+                <option value="土星">我从土星来...</option>
+                <option value="水星">我从水星来...</option>
+            </select>
+        </div>
+        <div>
+            <fieldset>
+                <legend>健康信息</legend>
+                <label>身高：</label><input type="text" /><br>
+                <label>体重：</label><input type="text" />
+            </fieldset>
+        </div>
+        <div>
+            <label>性&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;男性</label>
+            <input type="radio" name="sex">
+            <label>&nbsp;&nbsp;女性</label>
+            <input type="radio" name="sex">
+        </div>
+        <div id="submit">
+            <input type="submit" value="立即注册">
+        </div>
+    </form>
+</body>
+
+</html>

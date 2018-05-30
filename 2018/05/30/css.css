@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+form{
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 300px;
+    height: 140px;
+    background-color: darkgray;
+    text-align: center;
+}
+
+#username{
+    margin-bottom: 10px;
+}
+
+#pwd{
+    margin: 10px;
+}
+
+#submit{
+    margin: 10px;
+}

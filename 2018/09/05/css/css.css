@@ -1,0 +1,34 @@
+body {
+    background-color: pink;
+}
+
+#bg {
+    position: absolute;
+    top: 95%;
+    left: 0%;
+    width: 100%;
+    height: 25px;
+    background-color: white;
+}
+
+#nowTime {
+    position: absolute;
+    left: 40%;
+}
+
+.table {
+    table-layout: fixed;
+    width: 80%;
+    height: 30%;
+    background-color: white;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+
+#btns{
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}

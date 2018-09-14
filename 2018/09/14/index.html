@@ -8,7 +8,7 @@
     <style>
         .box{
             width: 300px;
-            height: 300px;
+            height: 400px;
             margin: auto;
             border: solid 1px black;
             position: absolute;
@@ -87,13 +87,13 @@
         }
         function serviceGame() {
             if (oInNum.value > num) {
-                oHistory.innerHTML = "你输入的" + oInNum.value + "太大了！";
+                oHistory.innerHTML = "你输入的" + oInNum.value + "太大了！" + "<br>" + oHistory.innerHTML;
             } else if (oInNum.value == num) {
-                oHistory.innerHTML = "你的答案是正确的！";
+                oHistory.innerHTML = "你的答案是正确的！" + "<br>" + oHistory.innerHTML;
                 document.getElementsByClassName("toClick")[0].value = "重置";
                 chance = 0;
             } else {
-                oHistory.innerHTML = "你输入的" + oInNum.value + "太小了！";
+                oHistory.innerHTML = "你输入的" + oInNum.value + "太小了！" + "<br>" + oHistory.innerHTML;
             }
         }
         function controlGame() {
@@ -103,12 +103,13 @@
                 oShowChance.innerHTML = chance;
                 oInNum.value = "";
                 oInNum.focus();
-                oHistory.innerHTML="";
+                oHistory.innerHTML = "";
             }
             else if (chance == 1) {
                 document.getElementsByClassName("toClick")[0].value = "重置";
                 chance--;
-                oShowChance.innerHTML = chance;
+                oShowChance.innerHTML = chance; 
+                serviceGame();
                 oInNum.value = "";
                 oInNum.focus();
             } else {

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            border: solid 1px black;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        .inDiv{
+            width: 270px;
+            margin: auto;
+        }
+
+        .inText{
+            border: none;
+            outline: none;
+            border: solid 1px rgb(0, 105, 217);
+            width: 200px;
+            height: 26px;
+            position: relative;
+            top: -1px;
+            left: 6px;
+            border-radius: 20px 0 0 20px;
+            text-indent: 2em;
+        }
+
+        .toClick{
+            width: 60px;
+            height: 30px;
+            background-color: white;
+            border-radius:0 20px 20px 0;
+            border: solid 1px rgb(0, 105, 217);
+        }
+
+        .showDiv{
+            width: 268px;
+            height: 150px;
+            border: 1px solid transparent;
+            margin: auto;
+            position: relative;
+            top: 20px;
+        }
+    </style>
+    <title>猜数字游戏</title>
+</head>
+
+<body onload="initGame();">
+    <div class="box">
+        <h2 class="title">猜数字游戏</h2>
+        <div class="inDiv">
+            <input type="number" placeholder="0-10整数，6次机会" class="inText">
+            <input type="button" onclick="controlGame();" class="toClick" value="猜数字">
+        </div>
+        <div class="showDiv">
+            <p>剩余次数：<span id="times"></span></p>
+            <p>猜测历史：</p>
+            <p><span id="history"></span></p>
+        </div>
+    </div>
+    <script>
+        var num = 0;
+        var chance = 6;
+        var oInNum = document.getElementsByClassName("inText")[0];
+        var oShowChance = document.getElementById("times");
+        var oHistory = document.getElementById("history");
+        function initGame() {
+            num = parseInt(Math.random() * 11);
+            chance = 6;
+            oShowChance.innerHTML = chance;
+            console.log(num);
+        }
+        function serviceGame() {
+            if (oInNum.value > num) {
+                oHistory.innerHTML = "你输入的" + oInNum.value + "太大了！";
+            } else if (oInNum.value == num) {
+                oHistory.innerHTML = "你的答案是正确的！";
+                document.getElementsByClassName("toClick")[0].value = "重置";
+                chance = 0;
+            } else {
+                oHistory.innerHTML = "你输入的" + oInNum.value + "太小了！";
+            }
+        }
+        function controlGame() {
+            if (chance == 0) {
+                initGame();
+                document.getElementsByClassName("toClick")[0].value = "猜数字";
+                oShowChance.innerHTML = chance;
+                oInNum.value = "";
+                oInNum.focus();
+                oHistory.innerHTML="";
+            }
+            else if (chance == 1) {
+                document.getElementsByClassName("toClick")[0].value = "重置";
+                chance--;
+                oShowChance.innerHTML = chance;
+                oInNum.value = "";
+                oInNum.focus();
+            } else {
+                chance--;
+                oShowChance.innerHTML = chance;
+                serviceGame();
+                oInNum.value = "";
+                oInNum.focus();
+            }
+        }
+    </script>
+</body>
+
+</html>

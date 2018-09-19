@@ -1,0 +1,15 @@
+#bg{
+    width: 800px;
+    height: auto;
+    border: 1px solid pink;
+}
+
+#inText {
+    position: fixed;
+    top:690px;
+}
+#do{
+    position: fixed;
+    top:689px;
+    left: 190px;
+}

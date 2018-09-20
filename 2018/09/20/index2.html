@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>超华丽CSS3 3D五彩发光文字动画DEMO演示</title>
+
+	<link rel="stylesheet" href="css/reset.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body onload="getTime()">
+	<figure>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+		<h1></h1>
+	</figure>
+
+	<script>
+		function getTime() {
+			var now = new Date();
+			var yyyy = now.getFullYear();
+			var MM = now.getMonth() + 1;
+			var dd = now.getDate();
+			var hh = now.getHours();
+			var mm = now.getMinutes();
+			var ss = now.getSeconds();
+			var oArray = document.getElementsByTagName("h1");
+			for (var i = 0; i < oArray.length; i++) {
+				oArray[i].innerHTML = yyyy + "年" + deal(MM) + "月" + deal(dd) + "日 " + deal(hh) + ":" + deal(mm) + ":" + deal(ss);
+			}
+			console.log(oArray[0]);
+			setTimeout('getTime()', 1000);
+		}
+		function deal(i) {
+			if (i < 10)
+				return '0' + i;
+			return i;
+		}
+	</script>
+</body>
+
+</html>

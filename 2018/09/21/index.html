@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+
+<body onload="auto()">
+    <h1 id="show"></h1>
+    <script>
+        var str = "青山绿水就是金山银山";
+        var oShow = document.getElementById("show");
+        var index = 0;
+        function auto() {
+            if (index < str.length) {
+                oShow.innerHTML += str[index++];
+            }else{
+                index=0;
+                oShow.innerHTML="";
+            }   
+            setTimeout('auto()',500);
+        }
+    </script>
+</body>
+
+</html>

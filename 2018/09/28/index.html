@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .big_box {
+            width: 500px;
+            position: relative;
+            border: 1px solid black;
+        }
+
+        .big_box img {
+            width: 100%;
+        }
+
+        #zoom {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: url(img/FE.jpg);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big_box">
+        <img src="img/FE.jpg">
+        <div id="zoom"></div>
+    </div>
+
+    <script>
+        $(document).mousemove(function (e) {
+            if (e.pageX >= 0 && e.pageX <= 500 && e.pageY >= 0 && e.pageY <= 315) {
+                $("#zoom").css({
+                    "top": e.pageY - 100 + "px",
+                    "left": e.pageX - 100 + "px",
+                    "background-positionX": (e.pageX - 100) * -2.19 - 100 + "px",
+                    "background-positionY": (e.pageY - 100) * -2.19 - 100 + "px"
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -44,7 +44,8 @@
                         "width": tImg.width * 0.5,
                         "border": "1px solid black",
                         "position": "relative",
-                        "float": "left"
+                        "float": "left",
+                        "margin":"25px"
                     });
                 }
 
@@ -61,18 +62,27 @@
                     "position": "absolute",
                     "top": "0px",
                     "left": "0px",
-                    "background": value,
-                    "border-radius": "50%"
+                    "background": "url(" + value + ")",
+                    "border-radius": "50%",
+                    "opacity": "0",
+                    "transition": "opacity 0.5s"
                 });
 
                 //放大镜div的控制
                 $(imgDiv).mousemove(function (e) {
-                    if (e.pageX >= 0 && e.pageX <= imgDiv.width && e.pageY >= 0 && e.pageY <= imgDiv.height) {
+                    var rX = e.pageX - $(this).offset().left;
+                    var rY = e.pageY - $(this).offset().top;
+                    if (rX >= 0 && rX <= imgDiv.width() && rY >= 0 && rY <= imgDiv.height()) {
                         $(zoomer).css({
-                            "top": e.pageY - 50 + "px",
-                            "left": e.pageX - 50 + "px",
-                            "background-positionX": (e.pageX - 50) * -2 - 50 + "px",
-                            "background-positionY": (e.pageY - 50) * -2 - 50 + "px"
+                            "top": rY - 50 + "px",
+                            "left": rX - 50 + "px",
+                            "background-positionX": (rX - 50) * -2 - 50 + "px",
+                            "background-positionY": (rY - 50) * -2 - 50 + "px",
+                            "opacity": "1"
+                        });
+                    } else {
+                        $(zoomer).css({
+                            "opacity": "0"
                         });
                     }
                 });

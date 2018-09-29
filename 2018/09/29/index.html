@@ -1,17 +1,84 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>多图放大镜</title>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
-    
+    <!-- 基准div -->
+    <div id="base"></div>
 
     <script>
-        
+        // 创建图片地址数组
+        var imgAddArray = [
+            "src/img/6.jpg",
+            "src/img/1.jpg",
+            "src/img/2.jpg",
+            "src/img/3.jpg",
+            "src/img/4.jpg",
+            "src/img/5.jpg",
+        ];
+
+        $(document).ready(function () {
+            var base = $("#base");
+
+            // 遍历图片地址数组创建节点
+            $.each(imgAddArray, function (index, value) {
+                var imgDiv = $('<div id=' + 'div' + index + '>' + '</div>');
+                var oImg = $('<img ' + 'id=' + 'img' + index + ' src=' + value + '>');
+                var zoomer = $('<div></div>');
+                $(base).before(imgDiv);
+                $(imgDiv).append(oImg);
+                $(imgDiv).append(zoomer);
+
+                // 设置div大小为图片的50%
+                var tImg = new Image();
+                tImg.src = value;
+                tImg.onload = function () {
+                    imgDiv.css({
+                        "width": tImg.width * 0.5,
+                        "border": "1px solid black",
+                        "position": "relative",
+                        "float": "left"
+                    });
+                }
+
+                // 设置图片为100%大小
+                oImg.css({
+                    "width": "100%"
+                });
+
+                // 设置放大镜div的样式
+                zoomer.css({
+                    "width": "100px",
+                    "height": "100px",
+                    "border": "1px solid black",
+                    "position": "absolute",
+                    "top": "0px",
+                    "left": "0px",
+                    "background": value,
+                    "border-radius": "50%"
+                });
+
+                //放大镜div的控制
+                $(imgDiv).mousemove(function (e) {
+                    if (e.pageX >= 0 && e.pageX <= imgDiv.width && e.pageY >= 0 && e.pageY <= imgDiv.height) {
+                        $(zoomer).css({
+                            "top": e.pageY - 50 + "px",
+                            "left": e.pageX - 50 + "px",
+                            "background-positionX": (e.pageX - 50) * -2 - 50 + "px",
+                            "background-positionY": (e.pageY - 50) * -2 - 50 + "px"
+                        });
+                    }
+                });
+            });
+        });
     </script>
 </body>
+
 </html>

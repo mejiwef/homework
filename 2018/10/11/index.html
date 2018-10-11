@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>樱花下落的速度是秒速5厘米</title>
+    <style>
+        body {
+            background: white;
+        }
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        /*        
+        样式：
+        1.大小
+        2.颜色
+        3.形状
+        4.模糊
+        ...
+
+        动作：
+        1.初始位置
+        2.下落速度
+        3.横摆轨迹：正弦波
+        */
+        $(document).ready(function () {
+            $.each([1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+            ], function (index, value) {
+                var oSnow = $('<div></div>');
+                $("body").append(oSnow);
+
+                //设置雪花样式
+                var rSize = getRanSize();
+                var rX = getRanPosiX();
+                var rY = getRanPosiY();
+                oSnow.css({
+                    "width": rSize, //随机大小
+                    "height": rSize, //随机大小
+                    "background-color": "pink",
+                    "border-radius": "50%",
+                    "position": "fixed",
+                    "left": rX, //随机初始位置x
+                    "top": rY, //随机初始位置y
+                    "filter": "blur(4px)",
+                    "opacity": "0.3",
+                    "z-index": index
+                });
+
+                let t = parseInt(Math.random() * 6);
+                let tx = $(oSnow).offset().left;
+                //雪花飘落
+                setInterval(function () {
+                    //Y
+                    var y = $(oSnow).offset().top;
+                    if (y > $(window).height()) {
+                        $(oSnow).css({
+                            "top": '0px'
+                        });
+                    } else {
+                        $(oSnow).css({
+                            "top": y + 1 + 'px'
+                        });
+                    }
+                }, 25);
+                setInterval(function () {
+                    //X
+                    if (t < 6) {
+                        t++;
+                    } else {
+                        t = 0;
+                    }
+                    $(oSnow).css({
+                        "left": tx + parseInt(Math.sin(t) * 10) + 'px'
+                    });
+                }, 200);
+            });
+
+            //随机大小
+            function getRanSize() {
+                var a = parseInt(Math.random() * 10 + 10);
+                return a + 'px';
+            }
+
+            //随机初始位置
+            function getRanPosiX() {
+                var a = parseInt(Math.random() * $(window).width());
+                return a + 'px';
+            }
+
+            function getRanPosiY() {
+                var a = parseInt(Math.random() * $(window).height());
+                return a + 'px';
+            }
+        });
+    </script>
+</body>
+
+</html>

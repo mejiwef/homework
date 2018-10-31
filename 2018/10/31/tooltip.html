@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tooltip</title>
+    <style>
+        div.top {
+            width: 80px;
+            height: 20px;
+            color: white;
+            background-color: gold;
+            position: fixed;
+            opacity: 0;
+            transition: opacity 5s;
+        }
+
+        div.top::after {
+            content: "";
+            position: absolute;
+            left: 30px;
+            bottom: -20px;
+            border: 10px solid;
+            border-color: gold transparent transparent transparent;
+        }
+
+        div.right {
+            width: 80px;
+            height: 20px;
+            color: white;
+            background-color: gold;
+            position: fixed;
+            left: 180px;
+            top: 45px;
+            opacity: 0;
+            transition: opacity 5s;
+        }
+
+        div.right::after {
+            content: "";
+            position: absolute;
+            left: -12px;
+            top: 4px;
+            border: 6px solid;
+            border-color: transparent gold transparent transparent;
+        }
+
+        div.bottom {
+            width: 80px;
+            height: 20px;
+            color: white;
+            background-color: gold;
+            position: fixed;
+            left: 180px;
+            top: 80px;
+            opacity: 0;
+            transition: opacity 5s;
+        }
+
+        div.bottom::after {
+            content: "";
+            position: absolute;
+            left: 30px;
+            top: -20px;
+            border: 10px solid;
+            border-color: transparent transparent gold transparent;
+        }
+
+        div.left {
+            width: 80px;
+            height: 20px;
+            color: white;
+            background-color: gold;
+            position: fixed;
+            left: 180px;
+            top: 45px;
+            opacity: 0;
+            transition: opacity 5s;
+        }
+
+        div.left::after {
+            content: "";
+            position: absolute;
+            right: -12px;
+            top: 4px;
+            border: 6px solid;
+            border-color: transparent transparent transparent gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top"></div>
+    <div id="right"></div>
+    <div id="bottom"></div>
+    <div id="left"></div>
+    <br>
+    <h3>
+        <label class="tip" tipValue="1">上提示框</label>
+        <label class="tip" tipValue="2">右提示框</label>
+        <label class="tip" tipValue="3">下提示框</label>
+        <label class="tip" tipValue="4">左提示框</label>
+    </h3>
+    <script>
+        var oTopTip = document.querySelector("#top");
+        var oRightTip = document.querySelector("#right");
+        var oBottomTip = document.querySelector("#bottom");
+        var oLeftTip = document.querySelector("#left");
+        (function () {
+            var oTipTexts = document.querySelectorAll(".tip");
+            for (var i = 0; i < oTipTexts.length; i++) {
+                var tipValue = parseInt(oTipTexts[i].getAttribute("tipValue"));
+                switch (tipValue) {
+                    case 1:
+                        oTipTexts[i].addEventListener("mouseenter", function () {
+                            oTopTip.classList.add("top");
+                        });
+                        oTipTexts[i].addEventListener("mouseleave", function () {
+                            oTopTip.classList.remove("top");
+                        });
+                        break;
+                    case 2:
+                        oTipTexts[i].addEventListener("mouseenter", function () {
+                            oRightTip.classList.add("right");
+                        });
+                        oTipTexts[i].addEventListener("mouseleave", function () {
+                            oRightTip.classList.remove("right");
+                        });
+                        break;
+                    case 3:
+                        oTipTexts[i].addEventListener("mouseenter", function () {
+                            oBottomTip.classList.add("bottom");
+                        });
+                        oTipTexts[i].addEventListener("mouseleave", function () {
+                            oBottomTip.classList.remove("bottom");
+                        });
+                        break;
+                    case 4:
+                        oTipTexts[i].addEventListener("mouseenter", function () {
+                            oLeftTip.classList.add("left");
+                        });
+                        oTipTexts[i].addEventListener("mouseleave", function () {
+                            oLeftTip.classList.remove("left");
+                        });
+                        break;
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
